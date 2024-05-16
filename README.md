@@ -16,38 +16,51 @@ Validate the possible use of a travel chatbot in the context of facilitating tra
 Describe step-by-step the scenario. Write it using this format (BDD style).
 
 ### STEP 01
+
 ```
 //given -> A user initiates a conversation with the travel chatbot.
 
 //when -> The user expresses interest in booking a flight to a specific destination.
 
 //then -> The chatbot prompts the user to provide details such as departure city, destination, travel dates, places to visits, and preferred airline.
+
 ```
+
 ### STEP 02
+
 ```
 //given -> The user provides the required travel details.
 
 //when -> The chatbot processes the information and checks for available flights matching the user's criteria.
 
 //then -> The chatbot presents the user with a list of available flight options, including prices, departure times, and airlines.
+
 ```
+
 ### STEP 03
+
 ```
 //given -> The user selects a flight from the options provided.
 
 //when -> The user confirms the selection and expresses interest in booking accommodation at the destination.
 
 //then -> The chatbot offers assistance in finding and booking hotels or other accommodations based on the user's preferences.
+
 ```
+
 ### STEP 04
+
 ```
 //given -> The user provides preferences for accommodation, such as location, budget, and amenities.
 
 //when -> The chatbot searches for available accommodations matching the user's preferences.
 
 //then -> The chatbot presents the user with a list of hotel options, including prices, ratings, and amenities, and assists in making reservations.
+
 ```
+
 ### STEP 05
+
 ```
 //given -> The user has booked a flight and accommodation.
 
