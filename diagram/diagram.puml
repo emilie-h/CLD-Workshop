@@ -1,0 +1,26 @@
+@startuml TravelChatbot
+
+skinparam component {
+    BackgroundColor Snow
+    BorderColor Black
+}
+
+package "Google Cloud Platform (PaaS)" {
+    package "instance" {
+        [frontend] as frontend
+        [backend] as backend
+    }
+    [Dialogflow Agent] as Dialogflow
+    [Google Cloud SQL] as CloudSQL
+
+}
+Actor user
+
+user --> [frontend] : HTTPS
+[frontend] <--> [backend] : HTTP
+[backend] --> [Dialogflow] : Webhook (HTTPS)
+[backend] --> [CloudSQL] : Store data
+
+[Dialogflow] --> [Third-party APIs] : HTTPS
+
+@enduml

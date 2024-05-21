@@ -81,6 +81,10 @@ Options to reduce or adapt costs:
 - Optimizing database queries for efficiency and reducing resource usage.
 - Utilizing serverless functions for backend operations to minimize compute costs.
 
+## Diagram
+
+![Travel Chatbot Architecture](./diagram/TravelChatbot.png)
+
 
 ## Return of experience
 
