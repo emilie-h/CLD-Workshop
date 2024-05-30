@@ -9,6 +9,7 @@ Validate the possible use of a travel chatbot in the context of facilitating tra
 - **Logical Components**: Dialogflow, Webhooks (for backend integration), Database (for storing travel data), Cloud Hosting (Google Cloud Platform).
 - **Ports/Protocols**: HTTPS for communication between Dialogflow and backend systems.
 - **Cloud Type**: Public Cloud (Google Cloud Platform) for hosting Dialogflow and other services.
+- **Deployment**: Terraform scripts for creating and managing the Dialogflow agent.
 
 
 ## Scenario
