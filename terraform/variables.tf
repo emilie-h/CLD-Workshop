@@ -26,3 +26,10 @@ variable "zone" {
   default = "us-central1-a"
   type    = string
 }
+
+variable "gcp_service_account_key_file_path" {
+  description = ""
+  default = "../credentials/cld-chatbot.json"
+  type        = string
+  nullable    = false
+}
