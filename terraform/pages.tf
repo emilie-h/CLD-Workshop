@@ -150,3 +150,24 @@ resource "google_dialogflow_cx_page" "order_confirmation" {
   }
 
 }
+
+resource "google_dialogflow_cx_page" "start_page" {
+  parent       = google_dialogflow_cx_flow.book_flight_flow.id
+  display_name = "StartPage"
+
+  entry_fulfillment {
+    return_partial_responses = false
+
+    messages {
+      text {
+        text = [
+          "Welcome! Where would you like to fly today?",
+        ]
+      }
+    }
+  }
+}
+
+
+
+

@@ -242,3 +242,22 @@ resource "google_dialogflow_cx_intent" "order_new" {
     }
   }
 }
+
+resource "google_dialogflow_cx_intent" "book_flight_intent" {
+  display_name = "BookFlight"
+  parent       = google_dialogflow_cx_agent.agent.id
+
+  training_phrases {
+    repeat_count = 1
+
+    parts {
+      text = "I want to book a flight"
+    }
+    parts {
+      text = "Can you help me book a flight?"
+    }
+    parts {
+      text = "I need to fly to [destination]"
+    }
+  }
+}

@@ -32,3 +32,45 @@ resource "google_dialogflow_cx_entity_type" "size" {
     synonyms = ["big", "giant", "large"]
   }
 }
+resource "google_dialogflow_cx_entity_type" "city" {
+  display_name = "City"
+  kind         = "KIND_MAP"
+  parent        = google_dialogflow_cx_agent.agent.id
+
+  entities {
+    value = "New York"
+    synonyms = ["NYC", "New York City"]
+  }
+  entities {
+    value = "Los Angeles"
+    synonyms = ["LA"]
+  }
+}
+
+resource "google_dialogflow_cx_entity_type" "date" {
+  display_name = "Date"
+  kind         = "KIND_MAP"
+  parent        = google_dialogflow_cx_agent.agent.id
+
+    entities {
+        value = "2023-01-01"
+      synonyms = ["New Year's Day", "January 1st"]
+    }
+}
+
+resource "google_dialogflow_cx_entity_type" "airline" {
+  display_name = "Airline"
+  kind         = "KIND_MAP"
+  parent        = google_dialogflow_cx_agent.agent.id
+
+  entities {
+    value = "American Airlines"
+    synonyms = ["AA"]
+  }
+  entities {
+    value = "Delta"
+    synonyms = ["Delta Airlines"]
+  }
+}
+
+
