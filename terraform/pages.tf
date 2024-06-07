@@ -155,18 +155,111 @@ resource "google_dialogflow_cx_page" "start_page" {
   parent       = google_dialogflow_cx_flow.book_flight_flow.id
   display_name = "StartPage"
 
-  entry_fulfillment {
-    return_partial_responses = false
+  transition_routes {
+    intent       = google_dialogflow_cx_intent.book_flight_intent.id
+    target_page  = google_dialogflow_cx_page.collect_details_page.id
+  }
+}
 
+resource "google_dialogflow_cx_page" "collect_details_page" {
+  parent       = google_dialogflow_cx_flow.book_flight_flow.id
+  display_name = "CollectDetailsPage"
+
+  entry_fulfillment {
     messages {
       text {
-        text = [
-          "Welcome! Where would you like to fly today?",
-        ]
+        text = ["Please provide the following details: departure city, destination, travel dates, places to visit, and preferred airline."]
       }
     }
   }
+
+  form {
+    parameters {
+      display_name = "departure_city"
+      entity_type  = google_dialogflow_cx_entity_type.city.id
+      required     = true
+
+      fill_behavior {
+        initial_prompt_fulfillment {
+          messages {
+            text {
+              text = ["What is your departure city?"]
+            }
+          }
+        }
+      }
+    }
+
+    parameters {
+      display_name = "destination"
+      entity_type  = google_dialogflow_cx_entity_type.city.id
+      required     = true
+
+      fill_behavior {
+        initial_prompt_fulfillment {
+          messages {
+            text {
+              text = ["What is your destination?"]
+            }
+          }
+        }
+      }
+    }
+
+    parameters {
+      display_name = "travel_dates"
+      entity_type  = google_dialogflow_cx_entity_type.date.id
+      required     = true
+
+      fill_behavior {
+        initial_prompt_fulfillment {
+          messages {
+            text {
+              text = ["What are your travel dates?"]
+            }
+          }
+        }
+      }
+    }
+
+
+    parameters {
+      display_name = "preferred_airline"
+      entity_type  = google_dialogflow_cx_entity_type.airline.id
+      required     = false
+
+      fill_behavior {
+        initial_prompt_fulfillment {
+          messages {
+            text {
+              text = ["Do you have a preferred airline?"]
+            }
+          }
+        }
+      }
+    }
+  }
+
+  transition_routes {
+    condition   = "$page.params.status = \"FINAL\""
+    target_page = google_dialogflow_cx_page.confirmation_page.id
+  }
 }
+
+resource "google_dialogflow_cx_page" "confirmation_page" {
+  parent       = google_dialogflow_cx_flow.book_flight_flow.id
+  display_name = "ConfirmationPage"
+
+  entry_fulfillment {
+    messages {
+      text {
+        text = ["Thank you for providing the details. Your flight booking is being processed."]
+      }
+    }
+  }
+
+}
+
 
 
 

@@ -244,8 +244,9 @@ resource "google_dialogflow_cx_intent" "order_new" {
 }
 
 resource "google_dialogflow_cx_intent" "book_flight_intent" {
-  display_name = "BookFlight"
+  display_name = "travel.flight"
   parent       = google_dialogflow_cx_agent.agent.id
+  priority     = 500000
 
   training_phrases {
     repeat_count = 1
@@ -258,6 +259,10 @@ resource "google_dialogflow_cx_intent" "book_flight_intent" {
     }
     parts {
       text = "I need to fly to [destination]"
+    }
+
+    parts {
+      text = "Flight"
     }
   }
 }
