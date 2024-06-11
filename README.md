@@ -16,6 +16,8 @@ Validate the possible use of a travel chatbot in the context of facilitating tra
 
 Describe step-by-step the scenario. Write it using this format (BDD style).
 
+Note: Only the first step is implemented in this POC.
+
 ### STEP 01
 
 ```
