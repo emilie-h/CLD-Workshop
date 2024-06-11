@@ -12,26 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-resource "google_dialogflow_cx_entity_type" "size" {
-  parent       = google_dialogflow_cx_agent.agent.id
-  display_name = "size"
-  kind         = "KIND_MAP"
 
-  entities {
-    value    = "small"
-    synonyms = ["little", "small", "tiny"]
-  }
-
-  entities {
-    value    = "medium"
-    synonyms = ["medium", "regular", "average"]
-  }
-
-  entities {
-    value    = "large"
-    synonyms = ["big", "giant", "large"]
-  }
-}
 resource "google_dialogflow_cx_entity_type" "city" {
   display_name = "City"
   kind         = "KIND_MAP"
@@ -39,11 +20,11 @@ resource "google_dialogflow_cx_entity_type" "city" {
 
   entities {
     value = "New York"
-    synonyms = ["NYC", "New York City"]
+    synonyms = ["NYC", "New York City", "New York"]
   }
   entities {
     value = "Los Angeles"
-    synonyms = ["LA"]
+    synonyms = ["LA", "Los Angeles"]
   }
 }
 
@@ -54,7 +35,7 @@ resource "google_dialogflow_cx_entity_type" "date" {
 
     entities {
         value = "2023-01-01"
-      synonyms = ["New Year's Day", "January 1st"]
+      synonyms = ["New Year's Day", "January 1st", "2023-01-01"]
     }
 }
 
@@ -65,11 +46,11 @@ resource "google_dialogflow_cx_entity_type" "airline" {
 
   entities {
     value = "American Airlines"
-    synonyms = ["AA"]
+    synonyms = ["AA", "American Airlines"]
   }
   entities {
-    value = "Delta"
-    synonyms = ["Delta Airlines"]
+    value = "Delta Airlines"
+    synonyms = ["Delta Airlines", "Delta"]
   }
 }
 
