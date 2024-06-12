@@ -2,7 +2,7 @@
 
 ## POC objectives
 
-Validate the possible use of a travel chatbot in the context of facilitating travel bookings (flights, hotels,...) and providing trip assistance.
+Validate the use of a travel chatbot in the context of facilitating travel bookings (flights, hotels,...) and providing trip assistance.
 
 ## Infra architecture
 
@@ -86,8 +86,7 @@ Options to reduce or adapt costs:
 
 ## Diagram
 
-![Travel Chatbot Architecture](./diagram/TravelChatbot.png)
-
+![Travel Chatbot Architecture](./diagram/diagram.svg)
 
 ## Return of experience
 
